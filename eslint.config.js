@@ -15,6 +15,7 @@ const compat = new FlatCompat({
 export default [
   ...compat.extends('eslint:recommended'),
   {
+    files: ['**/*.js'],
     languageOptions: {
       globals: {
         ...globals.node,
