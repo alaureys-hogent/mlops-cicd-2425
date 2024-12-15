@@ -1,0 +1,6 @@
+# Node.js specifc files and folders
+node_modules/
+
+# Docker-related files:
+.dockerignore
+docker-compose*.yml

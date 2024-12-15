@@ -17,4 +17,8 @@ jobs:
         run: yarn install
       - name: Lint the code
         run: yarn lint
+      - name: Build Docker image
+        run: |
+          docker build -t <alaureyshogent>/webapp:latest .
+
 

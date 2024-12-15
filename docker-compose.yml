@@ -1,0 +1,32 @@
+services:
+  webapp:
+    image: alaureyshogent/webapp
+    ports:
+      - "3000:3000"
+    environment:
+      MYSQL_URL: mysql://arnaud:laureys@database/animals
+    depends_on:
+      - database
+    volumes:
+      - ./database:/app/database
+  
+  database:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: animals
+      MYSQL_USER: arnaud
+      MYSQL_PASSWORD: laureys
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  tests:
+    build: .
+    environment:
+      API_URL: http://webapp:3000
+    depends_on:
+     - webapp
+    command: yarn test
+
+volumes:
+  mysql_data:
