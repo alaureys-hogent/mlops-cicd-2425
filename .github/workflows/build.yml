@@ -18,10 +18,9 @@ jobs:
       - name: Lint the code
         run: yarn lint
       - name: Build and push Docker image
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v6.10.0
         with:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/webapp:latest
-          secrets:
-            username: ${{ secrets.DOCKERHUB_USERNAME }}
-            password: ${{ secrets.DOCKERHUB_PASSWORD }}
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
