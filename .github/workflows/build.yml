@@ -19,5 +19,3 @@ jobs:
         run: yarn lint
       - name: Build Docker image
         run: docker build -t alaureyshogent/webapp:latest .
-
-
